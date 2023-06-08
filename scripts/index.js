@@ -15,6 +15,9 @@ coursesAPI.then((response) => response.json()).then((data) => {
        const cell3 = row.insertCell(2);
        cell3.innerHTML = element.courseName;
        const cell4 = row.insertCell(3);
-       cell4.innerHTML = `See details`;
+       const link = document.createElement('a');
+       link.href = `./details.html?couseid=${element.id}`;
+       link.text = 'See details';
+       cell4.appendChild(link);
     });
 });
