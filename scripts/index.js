@@ -2,6 +2,7 @@
 
 const tableDiv = document.getElementById('courseTable');
 const tbody = document.querySelector('#courseTable tbody');
+const courseBtn = document.getElementById('courseBtn');
 
 const coursesAPI = fetch('http://localhost:8081/api/courses');
 coursesAPI.then((response) => response.json()).then((data) => {
@@ -19,5 +20,14 @@ coursesAPI.then((response) => response.json()).then((data) => {
        link.href = `./details.html?couseid=${element.id}`;
        link.text = 'See details';
        cell4.appendChild(link);
+       const cell5 = row.insertCell(4);
+       const hyperLink = document.createElement('a');
+       hyperLink.href = `./confirm-delete.html?id=${element.id}`;
+       hyperLink.text = 'Delete';
+       cell5.appendChild(hyperLink);
     });
+});
+
+courseBtn.addEventListener('click', () => {
+    window.location.href = './newcourse.html';
 });
