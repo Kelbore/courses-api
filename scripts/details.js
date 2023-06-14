@@ -1,12 +1,12 @@
 'use strict';
 
 const params = new URLSearchParams(location.search);
-const couseid = params.get('couseid');
+const courseid = params.get('courseid');
 
 const tbody = document.querySelector('#detailsTable tbody');
 const gobackBtn = document.getElementById('gobackBtn');
 
-fetch(`http://localhost:8081/api/courses/${couseid}`).then((response) => response.json()).then((data) => {
+fetch(`http://localhost:8081/api/courses/${courseid}`).then((response) => response.json()).then((data) => {
     const row = tbody.insertRow(-1);
 
     const cell1 = row.insertCell(0);

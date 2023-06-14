@@ -17,7 +17,7 @@ coursesAPI.then((response) => response.json()).then((data) => {
        cell3.innerHTML = element.courseName;
        const cell4 = row.insertCell(3);
        const link = document.createElement('a');
-       link.href = `./details.html?couseid=${element.id}`;
+       link.href = `./details.html?courseid=${element.id}`;
        link.text = 'See details';
        cell4.appendChild(link);
        const cell5 = row.insertCell(4);
