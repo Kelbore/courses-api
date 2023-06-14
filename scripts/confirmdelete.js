@@ -1,5 +1,9 @@
 'use strict';
 
+const params = new URLSearchParams(location.search);
+const id = params.get('id');
+
+
 const tbody = document.querySelector('#deleteTable tbody');
 const tableDiv = document.getElementById('deleteTable');
 const deleteBtn = document.getElementById('deleteBtn');
@@ -24,13 +28,13 @@ fetch(`http://localhost:8081/api/courses/${id}`).then((response) => response.jso
 tableDiv.style.display = 'table';
 
 deleteBtn.addEventListener('click', () => {
-    console.log('clicked')
     fetch(`http://localhost:8081/api/courses/${id}`, {
-        method: 'DELETE'
-    }).then((response) => response.json()).then(data => {
+        method: "DELETE"
+    }).then((response) => response.json()).then((json) => {
+        console.log(json);
         alert('The course successfully deleted');
         window.location.href = 'index.html';
-    });
+    })
 });
 
 
